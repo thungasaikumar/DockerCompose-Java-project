@@ -1,4 +1,9 @@
+FROM maven:latest as builder
+WORKDIR /app
+COPY . .
+RUN mvn clean install -DskipTests
 FROM openjdk:8-jre
-ADD target/shopfront-0.0.1-SNAPSHOT.jar app.jar
+WORKDIR /app
+COPY --from=builder /app/target/shopfront-0.0.1-SNAPSHOT.jar .
 EXPOSE 8010
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+CMD ["java", "-jar", "shopfront-0.0.1-SNAPSHOT.jar"]

@@ -1,0 +1,14 @@
+version: '3'
+services:
+  productcatalogue:
+    image: thunga123/productcatalogue:1.0
+    ports:
+      - "8020:8020"
+  shopfront:
+    image: thunga123/shopfront:1.0
+    ports:
+      - "8010:8010"
+  stockmanager:
+    image: thunga123/stockmanager:1.0
+    ports:
+      - "8050:8050"
