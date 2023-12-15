@@ -1,6 +1,8 @@
 version: '3'
+# services are microservice or single app
 services:
   productcatalogue:
+  #mentioned the docker image whihcis pushed to docker hub
     image: thunga123/productcatalogue:1.0
     ports:
       - "8020:8020"
